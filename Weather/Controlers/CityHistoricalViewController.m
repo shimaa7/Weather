@@ -113,7 +113,7 @@ static NSString * const CellIDTitle = @"CityCell";
     
 }
 -(void) addNewCityBtnClick:(UIButton*)sender{
-    NSLog(@"Add new city!");
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 //---------------------- Cities Table View ------------------------------------

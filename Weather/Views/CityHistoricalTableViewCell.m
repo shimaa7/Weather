@@ -42,7 +42,7 @@ static NSString * const CellIDTitle = @"CityCell";
         // weather historical label
         self.weatherState = [[UILabel alloc] init];
         self.weatherState.textColor =  [UIColor colorWithRed:197/255.0 green:50/255.0 blue:73/255.0 alpha:1/1.0];
-        self.weatherState.font = [UIFont fontWithName:@"SFProText-Regular" size:24];
+        self.weatherState.font = [UIFont fontWithName:@"AlNile" size:20];
         self.weatherState.translatesAutoresizingMaskIntoConstraints = NO;
         [self.contentView addSubview:self.weatherState];
 
@@ -53,7 +53,7 @@ static NSString * const CellIDTitle = @"CityCell";
             
             // date and time label
             [self.DateTime.leftAnchor constraintEqualToAnchor: self.contentView.leftAnchor
-                                                     constant: 12].active = YES;
+                                                     constant: 15].active = YES;
             [self.DateTime.topAnchor constraintEqualToAnchor: self.contentView.topAnchor
                                                     constant:5].active = YES;
             [self.DateTime.heightAnchor constraintEqualToAnchor:self.contentView.heightAnchor
@@ -63,7 +63,7 @@ static NSString * const CellIDTitle = @"CityCell";
             
             // weather historical label
             [self.weatherState.leftAnchor constraintEqualToAnchor: self.contentView.leftAnchor
-                                                           constant: 17].active = YES;
+                                                           constant: 15].active = YES;
             [self.weatherState.topAnchor constraintEqualToAnchor: self.DateTime.bottomAnchor
                                                          constant:-15].active = YES;
             [self.weatherState.bottomAnchor constraintEqualToAnchor:self.contentView.bottomAnchor

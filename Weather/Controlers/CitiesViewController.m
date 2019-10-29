@@ -8,6 +8,7 @@
 
 #import "CitiesViewController.h"
 #import "CitiesTableViewCell.h"
+#import "CityHistoricalViewController.h"
 #import "AppDelegate.h"
 #import "API.h"
 
@@ -111,6 +112,8 @@ static NSString * const CellIDTitle = @"CitiesCell";
 }
 -(void) addNewCityBtnClick:(UIButton*)sender{
     NSLog(@"Add new city!");
+    CityHistoricalViewController *add = [[CityHistoricalViewController alloc] init];
+    [self presentViewController:add animated:YES completion:nil];
 }
 
 //---------------------- Cities Table View ------------------------------------
