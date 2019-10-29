@@ -18,6 +18,7 @@
 		D44F31272367EFE10069ECAC /* WeatherModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D44F31262367EFE10069ECAC /* WeatherModel.m */; };
 		D4C6DFB02367F4CD0042827E /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFAF2367F4CD0042827E /* API.m */; };
 		D4C6DFB3236813A60042827E /* CoreDate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFB2236813A60042827E /* CoreDate.m */; };
+		D4C6DFB923688DF70042827E /* CitiesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFB823688DF70042827E /* CitiesTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,8 @@
 		D4C6DFB12367F97D0042827E /* API.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = API.h; sourceTree = "<group>"; };
 		D4C6DFB2236813A60042827E /* CoreDate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDate.m; sourceTree = "<group>"; };
 		D4C6DFB4236813B20042827E /* CoreDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDate.h; sourceTree = "<group>"; };
+		D4C6DFB723688DF70042827E /* CitiesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesTableViewCell.h; sourceTree = "<group>"; };
+		D4C6DFB823688DF70042827E /* CitiesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 			children = (
 				D44F311223674D970069ECAC /* Main.storyboard */,
 				D44F311A23674D980069ECAC /* LaunchScreen.storyboard */,
+				D4C6DFB723688DF70042827E /* CitiesTableViewCell.h */,
+				D4C6DFB823688DF70042827E /* CitiesTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -269,6 +274,7 @@
 				D44F31272367EFE10069ECAC /* WeatherModel.m in Sources */,
 				D44F311123674D970069ECAC /* CitiesViewController.m in Sources */,
 				D44F311F23674D980069ECAC /* main.m in Sources */,
+				D4C6DFB923688DF70042827E /* CitiesTableViewCell.m in Sources */,
 				D4C6DFB3236813A60042827E /* CoreDate.m in Sources */,
 				D44F310E23674D970069ECAC /* AppDelegate.m in Sources */,
 			);

@@ -7,8 +7,11 @@
 //
 
 #import "CitiesViewController.h"
+#import "CitiesTableViewCell.h"
 #import "AppDelegate.h"
 #import "API.h"
+
+static NSString * const CellIDTitle = @"CitiesCell";
 
 @implementation CitiesViewController
 
@@ -59,7 +62,6 @@
     [addBtn setTitle:@"+" forState:UIControlStateNormal];
     [addBtn.titleLabel setFont:[UIFont fontWithName:@"Verdana" size:35.0]];
     [addBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [addBtn setContentMode:UIViewContentModeScaleAspectFit];
     addBtn.translatesAutoresizingMaskIntoConstraints = NO;
     [addBtn addTarget:self action:@selector(addNewCityBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview: addBtn];
@@ -124,6 +126,8 @@
     [self.citiesTableView setSeparatorColor:[UIColor blackColor]];
     self.citiesTableView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:self.citiesTableView];
+    [[self citiesTableView] registerClass:[CitiesTableViewCell class] forCellReuseIdentifier:CellIDTitle];
+
     
     //-------- setup constrains ----------------
     [self.citiesTableView.topAnchor constraintEqualToAnchor: self.view.topAnchor
@@ -146,18 +150,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *cellIdentifier = @"cellIdentifier";
+    //-------- setup cell configuration ----------------
+    static NSString *cellIdentifier = CellIDTitle;
     
-    UITableViewCell *cell = [self.citiesTableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    CitiesTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if(cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-        
     }
-    cell.textLabel.text =  [_content objectAtIndex:indexPath.row];
     cell.backgroundColor = UIColor.clearColor;
-    cell.textLabel.textColor = [UIColor colorWithRed:121/255.0 green:127/255.0 blue:136/255.0 alpha:1/1.0];
-    cell.textLabel.font = [UIFont fontWithName:@"AlNile-Bold" size:17];
+
+    //-------- fill data ----------------
+    cell.cityName.text = [_content objectAtIndex:indexPath.row];
+    [cell.historicalBtn addTarget:self action:@selector(addNewCityBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 
     return cell;
 }
