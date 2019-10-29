@@ -9,16 +9,14 @@
 #import "CitiesViewController.h"
 #import "AppDelegate.h"
 #import "API.h"
-@interface CitiesViewController ()
-
-@end
 
 @implementation CitiesViewController
 
-- (void)viewDidLoad {
+-(void)viewDidLoad {
     [super viewDidLoad];
     [self setupLayout];
-
+    [self cofigureTableview];
+    self.content = @[ @"Monday", @"Tuesday", @"Wednesday",@"Thursday",@"Friday",@"Saturday",@"Sunday"];
 //    Network *connection = [[Network alloc] init];
 //    [connection getServerRequest];
 }
@@ -42,7 +40,7 @@
     mainLabel.textColor = [UIColor colorWithRed:121/255.0 green:127/255.0 blue:136/255.0 alpha:1/1.0];
     mainLabel.text = @"CITIES";
     mainLabel.textAlignment = NSTextAlignmentCenter;
-    mainLabel.font = [UIFont fontWithName:@"Avenir Book" size:25];
+    mainLabel.font = [UIFont fontWithName:@"AlNile-Bold" size:20];
     mainLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview: mainLabel];
 
@@ -59,11 +57,11 @@
     [addBtn setExclusiveTouch:YES];
     addBtn.backgroundColor = UIColor.clearColor;
     [addBtn setTitle:@"+" forState:UIControlStateNormal];
-    [addBtn.titleLabel setFont:[UIFont fontWithName:@"Avenir Book" size:40.0]];
+    [addBtn.titleLabel setFont:[UIFont fontWithName:@"Verdana" size:35.0]];
     [addBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [addBtn setContentMode:UIViewContentModeScaleAspectFit];
     addBtn.translatesAutoresizingMaskIntoConstraints = NO;
-    [addBtn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [addBtn addTarget:self action:@selector(addNewCityBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview: addBtn];
     
 
@@ -104,15 +102,70 @@
     [addBtn.rightAnchor constraintEqualToAnchor: self.view.rightAnchor
                                                 constant: -viewWidth * 0.07].active = YES;
     [addBtn.centerYAnchor constraintEqualToAnchor: mainLabel.centerYAnchor
-                                               constant:0].active = YES;
+                                               constant:-2].active = YES;
     [addBtn.heightAnchor constraintEqualToAnchor:self.view.heightAnchor
                                                multiplier:0.3].active = YES;
 
 }
--(void) btnClick:(UIButton*)sender{
+-(void) addNewCityBtnClick:(UIButton*)sender{
     NSLog(@"Add new city!");
 }
 
+//---------------------- Cities Table View ------------------------------------
+
+-(void)cofigureTableview
+{
+    //-------- setup views ----------------
+    self.citiesTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    self.citiesTableView.delegate = self;
+    self.citiesTableView.dataSource = self;
+    self.citiesTableView.tableFooterView = [UIView new];
+    self.citiesTableView.backgroundColor = UIColor.clearColor;
+    [self.citiesTableView setSeparatorColor:[UIColor blackColor]];
+    self.citiesTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:self.citiesTableView];
+    
+    //-------- setup constrains ----------------
+    [self.citiesTableView.topAnchor constraintEqualToAnchor: self.view.topAnchor
+                                                constant: self.view.frame.size.height * 0.18].active = YES;
+    [self.citiesTableView.rightAnchor constraintEqualToAnchor: self.view.rightAnchor
+                                              constant:-15].active = YES;
+    [self.citiesTableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor
+                                               constant:0].active = YES;
+    [self.citiesTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor
+                                              constant:15].active = YES;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return _content.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"cellIdentifier";
+    
+    UITableViewCell *cell = [self.citiesTableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        
+    }
+    cell.textLabel.text =  [_content objectAtIndex:indexPath.row];
+    cell.backgroundColor = UIColor.clearColor;
+    cell.textLabel.textColor = [UIColor colorWithRed:121/255.0 green:127/255.0 blue:136/255.0 alpha:1/1.0];
+    cell.textLabel.font = [UIFont fontWithName:@"AlNile-Bold" size:17];
+
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
+{
+    NSLog(@"title of cell %@", [_content objectAtIndex:indexPath.row]);
+}
 @end
 
 

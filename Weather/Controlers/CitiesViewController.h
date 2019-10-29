@@ -10,5 +10,12 @@
 
 @interface CitiesViewController : UIViewController
 
+@property (strong,nonatomic) UITableView *citiesTableView;
+@property (strong,nonatomic) NSArray *content;
+
+- (void)viewDidLoad;
+- (void)setupLayout;
+- (void)addNewCityBtnClick:(UIButton*)sender;
+
 @end
 
