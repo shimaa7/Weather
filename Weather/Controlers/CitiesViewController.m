@@ -60,7 +60,7 @@ static NSString * const CellIDTitle = @"CitiesCell";
     [addBtn setExclusiveTouch:YES];
     addBtn.backgroundColor = UIColor.clearColor;
     [addBtn setTitle:@"+" forState:UIControlStateNormal];
-    [addBtn.titleLabel setFont:[UIFont fontWithName:@"Verdana" size:35.0]];
+    [addBtn.titleLabel setFont:[UIFont fontWithName:@"Verdana" size:30.0]];
     [addBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     addBtn.translatesAutoresizingMaskIntoConstraints = NO;
     [addBtn addTarget:self action:@selector(addNewCityBtnClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -118,25 +118,25 @@ static NSString * const CellIDTitle = @"CitiesCell";
 -(void)cofigureTableview
 {
     //-------- setup views ----------------
-    self.citiesTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
-    self.citiesTableView.delegate = self;
-    self.citiesTableView.dataSource = self;
-    self.citiesTableView.tableFooterView = [UIView new];
-    self.citiesTableView.backgroundColor = UIColor.clearColor;
-    [self.citiesTableView setSeparatorColor:[UIColor blackColor]];
-    self.citiesTableView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview:self.citiesTableView];
+    _citiesTableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+    _citiesTableView.delegate = self;
+    _citiesTableView.dataSource = self;
+    _citiesTableView.tableFooterView = [UIView new];
+    _citiesTableView.backgroundColor = UIColor.clearColor;
+    [_citiesTableView setSeparatorColor:[UIColor blackColor]];
+    _citiesTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview:_citiesTableView];
     [[self citiesTableView] registerClass:[CitiesTableViewCell class] forCellReuseIdentifier:CellIDTitle];
 
     
     //-------- setup constrains ----------------
-    [self.citiesTableView.topAnchor constraintEqualToAnchor: self.view.topAnchor
+    [_citiesTableView.topAnchor constraintEqualToAnchor: self.view.topAnchor
                                                 constant: self.view.frame.size.height * 0.18].active = YES;
-    [self.citiesTableView.rightAnchor constraintEqualToAnchor: self.view.rightAnchor
+    [_citiesTableView.rightAnchor constraintEqualToAnchor: self.view.rightAnchor
                                               constant:-15].active = YES;
-    [self.citiesTableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor
+    [_citiesTableView.leftAnchor constraintEqualToAnchor:self.view.leftAnchor
                                                constant:0].active = YES;
-    [self.citiesTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor
+    [_citiesTableView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor
                                               constant:15].active = YES;
 }
 

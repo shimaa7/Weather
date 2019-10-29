@@ -19,6 +19,9 @@
 		D4C6DFB02367F4CD0042827E /* API.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFAF2367F4CD0042827E /* API.m */; };
 		D4C6DFB3236813A60042827E /* CoreDate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFB2236813A60042827E /* CoreDate.m */; };
 		D4C6DFB923688DF70042827E /* CitiesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFB823688DF70042827E /* CitiesTableViewCell.m */; };
+		D4C6DFBC23689BF20042827E /* SearchForCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFBB23689BF20042827E /* SearchForCityViewController.m */; };
+		D4C6DFBF23689C0B0042827E /* CityHistoricalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFBE23689C0B0042827E /* CityHistoricalViewController.m */; };
+		D4C6DFC223689C390042827E /* CityCurrentWeatherDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFC123689C390042827E /* CityCurrentWeatherDetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,12 @@
 		D4C6DFB4236813B20042827E /* CoreDate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDate.h; sourceTree = "<group>"; };
 		D4C6DFB723688DF70042827E /* CitiesTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesTableViewCell.h; sourceTree = "<group>"; };
 		D4C6DFB823688DF70042827E /* CitiesTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesTableViewCell.m; sourceTree = "<group>"; };
+		D4C6DFBA23689BF20042827E /* SearchForCityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchForCityViewController.h; sourceTree = "<group>"; };
+		D4C6DFBB23689BF20042827E /* SearchForCityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchForCityViewController.m; sourceTree = "<group>"; };
+		D4C6DFBD23689C0B0042827E /* CityHistoricalViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityHistoricalViewController.h; sourceTree = "<group>"; };
+		D4C6DFBE23689C0B0042827E /* CityHistoricalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityHistoricalViewController.m; sourceTree = "<group>"; };
+		D4C6DFC023689C390042827E /* CityCurrentWeatherDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityCurrentWeatherDetailsViewController.h; sourceTree = "<group>"; };
+		D4C6DFC123689C390042827E /* CityCurrentWeatherDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityCurrentWeatherDetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +155,12 @@
 			children = (
 				D44F310F23674D970069ECAC /* CitiesViewController.h */,
 				D44F311023674D970069ECAC /* CitiesViewController.m */,
+				D4C6DFBA23689BF20042827E /* SearchForCityViewController.h */,
+				D4C6DFBB23689BF20042827E /* SearchForCityViewController.m */,
+				D4C6DFBD23689C0B0042827E /* CityHistoricalViewController.h */,
+				D4C6DFBE23689C0B0042827E /* CityHistoricalViewController.m */,
+				D4C6DFC023689C390042827E /* CityCurrentWeatherDetailsViewController.h */,
+				D4C6DFC123689C390042827E /* CityCurrentWeatherDetailsViewController.m */,
 			);
 			path = Controlers;
 			sourceTree = "<group>";
@@ -270,10 +285,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4C6DFB02367F4CD0042827E /* API.m in Sources */,
+				D4C6DFBF23689C0B0042827E /* CityHistoricalViewController.m in Sources */,
 				D44F311723674D970069ECAC /* Weather.xcdatamodeld in Sources */,
 				D44F31272367EFE10069ECAC /* WeatherModel.m in Sources */,
+				D4C6DFC223689C390042827E /* CityCurrentWeatherDetailsViewController.m in Sources */,
 				D44F311123674D970069ECAC /* CitiesViewController.m in Sources */,
 				D44F311F23674D980069ECAC /* main.m in Sources */,
+				D4C6DFBC23689BF20042827E /* SearchForCityViewController.m in Sources */,
 				D4C6DFB923688DF70042827E /* CitiesTableViewCell.m in Sources */,
 				D4C6DFB3236813A60042827E /* CoreDate.m in Sources */,
 				D44F310E23674D970069ECAC /* AppDelegate.m in Sources */,
