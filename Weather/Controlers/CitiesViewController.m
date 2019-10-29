@@ -19,7 +19,7 @@ static NSString * const CellIDTitle = @"CitiesCell";
     [super viewDidLoad];
     [self setupLayout];
     [self cofigureTableview];
-    self.content = @[ @"Monday", @"Tuesday", @"Wednesday",@"Thursday",@"Friday",@"Saturday",@"Sunday"];
+    self.content = @[ @"London, UK", @"Paris, FR", @"Vienna, AUT"];
 //    Network *connection = [[Network alloc] init];
 //    [connection getServerRequest];
 }

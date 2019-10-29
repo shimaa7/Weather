@@ -22,6 +22,7 @@
 		D4C6DFBC23689BF20042827E /* SearchForCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFBB23689BF20042827E /* SearchForCityViewController.m */; };
 		D4C6DFBF23689C0B0042827E /* CityHistoricalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFBE23689C0B0042827E /* CityHistoricalViewController.m */; };
 		D4C6DFC223689C390042827E /* CityCurrentWeatherDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFC123689C390042827E /* CityCurrentWeatherDetailsViewController.m */; };
+		D4C6DFC52368A7F00042827E /* CityHistoricalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D4C6DFC42368A7F00042827E /* CityHistoricalTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +54,8 @@
 		D4C6DFBE23689C0B0042827E /* CityHistoricalViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityHistoricalViewController.m; sourceTree = "<group>"; };
 		D4C6DFC023689C390042827E /* CityCurrentWeatherDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityCurrentWeatherDetailsViewController.h; sourceTree = "<group>"; };
 		D4C6DFC123689C390042827E /* CityCurrentWeatherDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityCurrentWeatherDetailsViewController.m; sourceTree = "<group>"; };
+		D4C6DFC32368A7F00042827E /* CityHistoricalTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityHistoricalTableViewCell.h; sourceTree = "<group>"; };
+		D4C6DFC42368A7F00042827E /* CityHistoricalTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityHistoricalTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 				D44F311A23674D980069ECAC /* LaunchScreen.storyboard */,
 				D4C6DFB723688DF70042827E /* CitiesTableViewCell.h */,
 				D4C6DFB823688DF70042827E /* CitiesTableViewCell.m */,
+				D4C6DFC32368A7F00042827E /* CityHistoricalTableViewCell.h */,
+				D4C6DFC42368A7F00042827E /* CityHistoricalTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -155,10 +160,10 @@
 			children = (
 				D44F310F23674D970069ECAC /* CitiesViewController.h */,
 				D44F311023674D970069ECAC /* CitiesViewController.m */,
-				D4C6DFBA23689BF20042827E /* SearchForCityViewController.h */,
-				D4C6DFBB23689BF20042827E /* SearchForCityViewController.m */,
 				D4C6DFBD23689C0B0042827E /* CityHistoricalViewController.h */,
 				D4C6DFBE23689C0B0042827E /* CityHistoricalViewController.m */,
+				D4C6DFBA23689BF20042827E /* SearchForCityViewController.h */,
+				D4C6DFBB23689BF20042827E /* SearchForCityViewController.m */,
 				D4C6DFC023689C390042827E /* CityCurrentWeatherDetailsViewController.h */,
 				D4C6DFC123689C390042827E /* CityCurrentWeatherDetailsViewController.m */,
 			);
@@ -286,6 +291,7 @@
 			files = (
 				D4C6DFB02367F4CD0042827E /* API.m in Sources */,
 				D4C6DFBF23689C0B0042827E /* CityHistoricalViewController.m in Sources */,
+				D4C6DFC52368A7F00042827E /* CityHistoricalTableViewCell.m in Sources */,
 				D44F311723674D970069ECAC /* Weather.xcdatamodeld in Sources */,
 				D44F31272367EFE10069ECAC /* WeatherModel.m in Sources */,
 				D4C6DFC223689C390042827E /* CityCurrentWeatherDetailsViewController.m in Sources */,
