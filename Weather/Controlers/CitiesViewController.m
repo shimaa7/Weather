@@ -9,6 +9,8 @@
 #import "CitiesViewController.h"
 #import "CitiesTableViewCell.h"
 #import "CityHistoricalViewController.h"
+#import "SearchForCityViewController.h"
+#import "CityCurrentWeatherDetailsViewController.h"
 #import "AppDelegate.h"
 
 static NSString * const CellIDTitle = @"CitiesCell";
@@ -109,6 +111,11 @@ static NSString * const CellIDTitle = @"CitiesCell";
 }
 -(void) addNewCityBtnClick:(UIButton*)sender{
     NSLog(@"Add new city!");
+    SearchForCityViewController *add = [[SearchForCityViewController alloc] init];
+    [self presentViewController:add animated:YES completion:nil];
+}
+-(void) CityHistoricalBtnClick:(UIButton*)sender{
+    NSLog(@"Add new city!");
     CityHistoricalViewController *add = [[CityHistoricalViewController alloc] init];
     [self presentViewController:add animated:YES completion:nil];
 }
@@ -162,7 +169,7 @@ static NSString * const CellIDTitle = @"CitiesCell";
 
     //-------- fill data ----------------
     cell.cityName.text = [_content objectAtIndex:indexPath.row];
-    [cell.historicalBtn addTarget:self action:@selector(addNewCityBtnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.historicalBtn addTarget:self action:@selector(CityHistoricalBtnClick:) forControlEvents:UIControlEventTouchUpInside];
 
     return cell;
 }
@@ -170,6 +177,8 @@ static NSString * const CellIDTitle = @"CitiesCell";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;
 {
     NSLog(@"title of cell %@", [_content objectAtIndex:indexPath.row]);
+    CityCurrentWeatherDetailsViewController *add = [[CityCurrentWeatherDetailsViewController alloc] init];
+    [self presentViewController:add animated:YES completion:nil];
 }
 @end
 
