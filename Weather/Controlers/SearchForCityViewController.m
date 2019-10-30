@@ -8,8 +8,6 @@
 
 #import "SearchForCityViewController.h"
 #import "CitiesTableViewCell.h"
-#import "API.h"
-#import "WeatherModel.h"
 
 static NSString * const CellIDTitle = @"CitiesCell";
 
@@ -20,10 +18,6 @@ static NSString * const CellIDTitle = @"CitiesCell";
     [self setupLayout];
     [self cofigureTableview];
     self.content = @[ @"London, UK", @"Paris, FR", @"Vienna, AUT"];
-    Network *connection = [[Network alloc] init];
-    [connection getCityWeatherRequest: @"vienna" completed:^(struct Weather weather) {
-        NSLog(@"%@ %@", weather.city_name, weather.description);
-    }];
 
 }
 -(void)setupLayout{

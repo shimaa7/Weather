@@ -7,10 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WeatherModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CityCurrentWeatherDetailsViewController : UIViewController
+
+@property (strong,nonatomic) NSString *city_name;
+@property (strong,nonatomic) UILabel *descriptionVal;
+@property (strong,nonatomic) UILabel *temperatureVal;
+@property (strong,nonatomic) UILabel *humidityVal;
+@property (strong,nonatomic) UILabel *windspeedVal;
+@property (strong,nonatomic) UILabel *mainLabel;
+
 
 @end
 

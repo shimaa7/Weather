@@ -178,6 +178,9 @@ static NSString * const CellIDTitle = @"CitiesCell";
 {
     NSLog(@"title of cell %@", [_content objectAtIndex:indexPath.row]);
     CityCurrentWeatherDetailsViewController *add = [[CityCurrentWeatherDetailsViewController alloc] init];
+    NSString *lower = [_content[indexPath.row] lowercaseString];
+    NSString *noSpace = [lower stringByReplacingOccurrencesOfString:@" " withString:@""];
+    add.city_name = noSpace;
     [self presentViewController:add animated:YES completion:nil];
 }
 @end

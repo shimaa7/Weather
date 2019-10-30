@@ -7,14 +7,28 @@
 //
 
 #import "CityCurrentWeatherDetailsViewController.h"
+#import "API.h"
+#import "WeatherModel.h"
 
 @implementation CityCurrentWeatherDetailsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupLayout];
+    Network *connection = [[Network alloc] init];
+    [connection getCityWeatherRequest: _city_name completed:^(struct Weather weather) {
+        NSLog(@"%@ %@", weather.city_name, weather.description);
+        [self loadData: weather];
+    }];
+    
 }
-
+-(void)loadData: (struct Weather) weather{
+//    _descriptionVal.text = weather.description;
+//    _humidityVal.text = weather.humidity;
+//    _windspeedVal.text = weather.windspeed;
+//    _temperatureVal.text = weather.temperature;
+//    _mainLabel.text = weather.city_name;
+}
 -(void)setupLayout{
     
     //-------- setup views ----------------
@@ -31,13 +45,13 @@
     [self.view addSubview: bottomImageView];
     
     // main label
-    UILabel *mainLabel = [[UILabel alloc] init];
-    mainLabel.textColor = [UIColor colorWithRed:121/255.0 green:127/255.0 blue:136/255.0 alpha:1/1.0];
-    mainLabel.text = @"CITIES";
-    mainLabel.textAlignment = NSTextAlignmentCenter;
-    mainLabel.font = [UIFont fontWithName:@"AlNile-Bold" size:20];
-    mainLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.view addSubview: mainLabel];
+    _mainLabel = [[UILabel alloc] init];
+    _mainLabel.textColor = [UIColor colorWithRed:121/255.0 green:127/255.0 blue:136/255.0 alpha:1/1.0];
+    _mainLabel.text = @"London UK";
+    _mainLabel.textAlignment = NSTextAlignmentCenter;
+    _mainLabel.font = [UIFont fontWithName:@"AlNile-Bold" size:20];
+    _mainLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view addSubview: _mainLabel];
     
     // bottom label
     UILabel *bottomLabel = [[UILabel alloc] init];
@@ -118,40 +132,40 @@
     [centerView addSubview: Windspeed];
     
     // Description
-    UILabel *DescriptionVal = [[UILabel alloc] init];
-    DescriptionVal.textColor =  [UIColor colorWithRed:197/255.0 green:50/255.0 blue:73/255.0 alpha:1/1.0];
-    DescriptionVal.text = @"Cloudy";
-    DescriptionVal.textAlignment = NSTextAlignmentCenter;
-    DescriptionVal.font = [UIFont fontWithName:@"AlNile-Bold" size:28];
-    DescriptionVal.translatesAutoresizingMaskIntoConstraints = NO;
-    [centerView addSubview: DescriptionVal];
+    _descriptionVal = [[UILabel alloc] init];
+    _descriptionVal.textColor =  [UIColor colorWithRed:197/255.0 green:50/255.0 blue:73/255.0 alpha:1/1.0];
+    _descriptionVal.text = @"Cloudy";
+    _descriptionVal.textAlignment = NSTextAlignmentCenter;
+    _descriptionVal.font = [UIFont fontWithName:@"AlNile-Bold" size:28];
+    _descriptionVal.translatesAutoresizingMaskIntoConstraints = NO;
+    [centerView addSubview: _descriptionVal];
     
     // temperature
-    UILabel *temperatureVal = [[UILabel alloc] init];
-    temperatureVal.textColor =  [UIColor colorWithRed:197/255.0 green:50/255.0 blue:73/255.0 alpha:1/1.0];
-    temperatureVal.text = @"20° C";
-    temperatureVal.textAlignment = NSTextAlignmentCenter;
-    temperatureVal.font = [UIFont fontWithName:@"AlNile-Bold" size:28];
-    temperatureVal.translatesAutoresizingMaskIntoConstraints = NO;
-    [centerView addSubview: temperatureVal];
+    _temperatureVal = [[UILabel alloc] init];
+    _temperatureVal.textColor =  [UIColor colorWithRed:197/255.0 green:50/255.0 blue:73/255.0 alpha:1/1.0];
+    _temperatureVal.text = @"20° C";
+    _temperatureVal.textAlignment = NSTextAlignmentCenter;
+    _temperatureVal.font = [UIFont fontWithName:@"AlNile-Bold" size:28];
+    _temperatureVal.translatesAutoresizingMaskIntoConstraints = NO;
+    [centerView addSubview: _temperatureVal];
     
     // humidity
-    UILabel *humidityVal = [[UILabel alloc] init];
-    humidityVal.textColor =  [UIColor colorWithRed:197/255.0 green:50/255.0 blue:73/255.0 alpha:1/1.0];
-    humidityVal.text = @"45%";
-    humidityVal.textAlignment = NSTextAlignmentCenter;
-    humidityVal.font = [UIFont fontWithName:@"AlNile-Bold" size:28];
-    humidityVal.translatesAutoresizingMaskIntoConstraints = NO;
-    [centerView addSubview: humidityVal];
+    _humidityVal = [[UILabel alloc] init];
+    _humidityVal.textColor =  [UIColor colorWithRed:197/255.0 green:50/255.0 blue:73/255.0 alpha:1/1.0];
+    _humidityVal.text = @"45%";
+    _humidityVal.textAlignment = NSTextAlignmentCenter;
+    _humidityVal.font = [UIFont fontWithName:@"AlNile-Bold" size:28];
+    _humidityVal.translatesAutoresizingMaskIntoConstraints = NO;
+    [centerView addSubview: _humidityVal];
     
     // Windspeed
-    UILabel *WindspeedVal = [[UILabel alloc] init];
-    WindspeedVal.textColor =  [UIColor colorWithRed:197/255.0 green:50/255.0 blue:73/255.0 alpha:1/1.0];
-    WindspeedVal.text = @"20 km/h";
-    WindspeedVal.textAlignment = NSTextAlignmentCenter;
-    WindspeedVal.font = [UIFont fontWithName:@"AlNile-Bold" size:28];
-    WindspeedVal.translatesAutoresizingMaskIntoConstraints = NO;
-    [centerView addSubview: WindspeedVal];
+    _windspeedVal = [[UILabel alloc] init];
+    _windspeedVal.textColor =  [UIColor colorWithRed:197/255.0 green:50/255.0 blue:73/255.0 alpha:1/1.0];
+    _windspeedVal.text = @"20 km/h";
+    _windspeedVal.textAlignment = NSTextAlignmentCenter;
+    _windspeedVal.font = [UIFont fontWithName:@"AlNile-Bold" size:28];
+    _windspeedVal.translatesAutoresizingMaskIntoConstraints = NO;
+    [centerView addSubview: _windspeedVal];
     
     //-------- setup constrains ----------------
     
@@ -169,11 +183,11 @@
                                                multiplier:0.4].active = YES;
     
     // main label
-    [mainLabel.topAnchor constraintEqualToAnchor: self.view.topAnchor
+    [_mainLabel.topAnchor constraintEqualToAnchor: self.view.topAnchor
                                         constant:-viewHeight * 0.005].active = YES;
-    [mainLabel.centerXAnchor constraintEqualToAnchor: self.view.centerXAnchor
+    [_mainLabel.centerXAnchor constraintEqualToAnchor: self.view.centerXAnchor
                                             constant:0.0].active = YES;
-    [mainLabel.heightAnchor constraintEqualToAnchor:self.view.heightAnchor
+    [_mainLabel.heightAnchor constraintEqualToAnchor:self.view.heightAnchor
                                          multiplier:0.2].active = YES;
     
     // bottom label
@@ -197,7 +211,7 @@
     // add city btn
     [addBtn.leftAnchor constraintEqualToAnchor: self.view.leftAnchor
                                        constant: viewWidth * 0.07].active = YES;
-    [addBtn.centerYAnchor constraintEqualToAnchor: mainLabel.centerYAnchor
+    [addBtn.centerYAnchor constraintEqualToAnchor: _mainLabel.centerYAnchor
                                          constant:-2].active = YES;
     [addBtn.heightAnchor constraintEqualToAnchor:self.view.heightAnchor
                                       multiplier:0.3].active = YES;
@@ -263,47 +277,44 @@
                                        multiplier:0.35].active = YES;
     
     // Description label
-    [DescriptionVal.rightAnchor constraintEqualToAnchor: centerView.rightAnchor
+    [_descriptionVal.rightAnchor constraintEqualToAnchor: centerView.rightAnchor
                                            constant:-viewHeight * 0.04].active = YES;
-    [DescriptionVal.topAnchor constraintEqualToAnchor: weatherImageView.bottomAnchor
+    [_descriptionVal.topAnchor constraintEqualToAnchor: weatherImageView.bottomAnchor
                                           constant:viewHeight * 0.04].active = YES;
-    [DescriptionVal.heightAnchor constraintEqualToAnchor:centerView.heightAnchor
+    [_descriptionVal.heightAnchor constraintEqualToAnchor:centerView.heightAnchor
                                            multiplier:0.1].active = YES;
-    [DescriptionVal.widthAnchor constraintEqualToAnchor:centerView.widthAnchor
+    [_descriptionVal.widthAnchor constraintEqualToAnchor:centerView.widthAnchor
                                           multiplier:0.3].active = YES;
     
     // temperature label
-    [temperatureVal.rightAnchor constraintEqualToAnchor: DescriptionVal.rightAnchor
+    [_temperatureVal.rightAnchor constraintEqualToAnchor: _descriptionVal.rightAnchor
                                            constant:viewHeight * 0.027].active = YES;
-    [temperatureVal.topAnchor constraintEqualToAnchor: DescriptionVal.bottomAnchor
+    [_temperatureVal.topAnchor constraintEqualToAnchor: _descriptionVal.bottomAnchor
                                           constant:0].active = YES;
-    [temperatureVal.heightAnchor constraintEqualToAnchor:centerView.heightAnchor
+    [_temperatureVal.heightAnchor constraintEqualToAnchor:centerView.heightAnchor
                                            multiplier:0.1].active = YES;
-    [temperatureVal.widthAnchor constraintEqualToAnchor:centerView.widthAnchor
+    [_temperatureVal.widthAnchor constraintEqualToAnchor:centerView.widthAnchor
                                           multiplier:0.35].active = YES;
     
     // humidity label
-    [humidityVal.rightAnchor constraintEqualToAnchor: DescriptionVal.rightAnchor
+    [_humidityVal.rightAnchor constraintEqualToAnchor: _descriptionVal.rightAnchor
                                         constant:viewHeight * 0.035].active = YES;
-    [humidityVal.topAnchor constraintEqualToAnchor: temperatureVal.bottomAnchor
+    [_humidityVal.topAnchor constraintEqualToAnchor: _temperatureVal.bottomAnchor
                                        constant:0].active = YES;
-    [humidityVal.heightAnchor constraintEqualToAnchor:centerView.heightAnchor
+    [_humidityVal.heightAnchor constraintEqualToAnchor:centerView.heightAnchor
                                         multiplier:0.1].active = YES;
-    [humidityVal.widthAnchor constraintEqualToAnchor:centerView.widthAnchor
+    [_humidityVal.widthAnchor constraintEqualToAnchor:centerView.widthAnchor
                                        multiplier:0.35].active = YES;
     
     // humidity label
-    [WindspeedVal.rightAnchor constraintEqualToAnchor: DescriptionVal.rightAnchor
+    [_windspeedVal.rightAnchor constraintEqualToAnchor: _descriptionVal.rightAnchor
                                          constant:viewHeight * 0.008].active = YES;
-    [WindspeedVal.topAnchor constraintEqualToAnchor: humidityVal.bottomAnchor
+    [_windspeedVal.topAnchor constraintEqualToAnchor: _humidityVal.bottomAnchor
                                         constant:0].active = YES;
-    [WindspeedVal.heightAnchor constraintEqualToAnchor:centerView.heightAnchor
+    [_windspeedVal.heightAnchor constraintEqualToAnchor:centerView.heightAnchor
                                          multiplier:0.1].active = YES;
-    [WindspeedVal.widthAnchor constraintEqualToAnchor:centerView.widthAnchor
+    [_windspeedVal.widthAnchor constraintEqualToAnchor:centerView.widthAnchor
                                         multiplier:0.35].active = YES;
-    
-    
-    
     
 }
 -(void) addNewCityBtnClick:(UIButton*)sender{
