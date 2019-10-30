@@ -8,10 +8,6 @@
 
 #import "CityCurrentWeatherDetailsViewController.h"
 
-@interface CityCurrentWeatherDetailsViewController ()
-
-@end
-
 @implementation CityCurrentWeatherDetailsViewController
 
 - (void)viewDidLoad {

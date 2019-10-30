@@ -10,20 +10,49 @@
 #import <AFNetworking.h>
 #import "UIImageView+AFNetworking.h"
 #import "API.h"
+#import "WeatherModel.h"
 
 @implementation Network
 
-static NSString * const BaseURLString = @"https://openweathermap.org/data/2.5/London?q=Cairo&APPID=f5cb0b965ea1564c50c6f1b74534d823";
+static NSString* const CityWeatherURLString = @"https://api.openweathermap.org/data/2.5/weather?APPID=f5cb0b965ea1564c50c6f1b74534d823&q=";
 
-- (void) getServerRequest
+- (struct Weather) getCityWeatherRequest: (NSString*) city_name completed:(getRequestBlock)completed
 {
-    NSURL *URL = [NSURL URLWithString: BaseURLString];
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    [manager GET:URL.absoluteString parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
-        NSLog(@"JSON: %@", responseObject);
-    } failure:^(NSURLSessionTask *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
+    NSString *BaseURL = [CityWeatherURLString stringByAppendingString:city_name];
+    
+    __block struct Weather currentCityWeather;
+
+    //--------------- API Request ---------------------------------------
+
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    
+    NSURL *URL = [NSURL URLWithString:BaseURL];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    
+    NSURLSessionDataTask *dataTask = [manager dataTaskWithRequest:request completionHandler:^(NSURLResponse *response, id responseObject, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            
+            //--------------- Fill Data ----------------------------------
+//            NSLog(@"%@", responseObject[@"weather"][0][@"description"]);
+            currentCityWeather.city_id = (int) responseObject[@"id"];
+            currentCityWeather.city_name = (NSString*) responseObject[@"name"];
+            currentCityWeather.description = (NSString*) responseObject[@"weather"][0][@"description"];
+            currentCityWeather.humidity = (NSString*)responseObject[@"main"][@"humidity"];
+            currentCityWeather.temperature = (NSString*)responseObject[@"main"][@"temp"];
+            currentCityWeather.windspeed = (NSString*)responseObject[@"wind"][@"speed"];
+            NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
+            [dateFormatter setDateFormat:@"dd.MM.yyyy - HH:mm"];
+            currentCityWeather.request_data_time = [dateFormatter stringFromDate:[NSDate date]];
+//            NSLog(@"%@ %@", currentCityWeather.city_name, currentCityWeather.description);
+            completed(currentCityWeather);
+        }
     }];
+    [dataTask resume];
+    return currentCityWeather;
 
 }
 

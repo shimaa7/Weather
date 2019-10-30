@@ -8,10 +8,14 @@
 
 #ifndef API_h
 #define API_h
+#import "WeatherModel.h"
 
 @interface Network : NSObject
 
--(void) getServerRequest;
+typedef void(^getRequestBlock)(struct Weather weather);
+
+-(struct Weather) getCityWeatherRequest: (NSString*) city_name completed:(getRequestBlock)completed;
+
 
 @end
 

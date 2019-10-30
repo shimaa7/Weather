@@ -10,7 +10,6 @@
 #import "CitiesTableViewCell.h"
 #import "CityHistoricalViewController.h"
 #import "AppDelegate.h"
-#import "API.h"
 
 static NSString * const CellIDTitle = @"CitiesCell";
 
@@ -21,8 +20,6 @@ static NSString * const CellIDTitle = @"CitiesCell";
     [self setupLayout];
     [self cofigureTableview];
     self.content = @[ @"London, UK", @"Paris, FR", @"Vienna, AUT"];
-//    Network *connection = [[Network alloc] init];
-//    [connection getServerRequest];
 }
 -(void)setupLayout{
     
