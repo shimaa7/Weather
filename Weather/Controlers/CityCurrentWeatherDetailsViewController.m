@@ -17,17 +17,18 @@
     [self setupLayout];
     Network *connection = [[Network alloc] init];
     [connection getCityWeatherRequest: _city_name completed:^(struct Weather weather) {
-        NSLog(@"%@ %@", weather.city_name, weather.description);
+//        NSLog(@"%@ %@", weather.city_name, weather.humidity);
         [self loadData: weather];
     }];
     
 }
 -(void)loadData: (struct Weather) weather{
-//    _descriptionVal.text = weather.description;
-//    _humidityVal.text = weather.humidity;
-//    _windspeedVal.text = weather.windspeed;
-//    _temperatureVal.text = weather.temperature;
-//    _mainLabel.text = weather.city_name;
+//    NSLog(@"%@", weather.humidity);
+    _descriptionVal.text = weather.description;
+    _humidityVal.text =  [NSString stringWithFormat: @"%@ %@", [weather.humidity stringValue], @"%"];
+    _windspeedVal.text = [NSString stringWithFormat: @"%@ %@", [weather.windspeed stringValue], @"Km/h"];
+    _temperatureVal.text = [NSString stringWithFormat: @"%@ %@", [weather.temperature stringValue], @"°C"];
+    _mainLabel.text = weather.city_name;
 }
 -(void)setupLayout{
     

@@ -13,10 +13,10 @@ struct Weather{
     NSString *city_name;
     NSString *request_data_time;
     NSString *description;
-    NSString *temperature;
-    NSString *humidity;
-    NSString *windspeed;
-    int   city_id;
+    NSNumber *temperature;
+    NSNumber *humidity;
+    NSNumber *windspeed;
+    NSNumber   *city_id;
 };
 
 #endif /* WeatherModel_h */

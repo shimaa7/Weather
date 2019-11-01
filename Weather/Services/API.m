@@ -38,12 +38,12 @@ static NSString* const CityWeatherURLString = @"https://api.openweathermap.org/d
             
             //--------------- Fill Data ----------------------------------
 //            NSLog(@"%@", responseObject[@"weather"][0][@"description"]);
-            currentCityWeather.city_id = (int) responseObject[@"id"];
+            currentCityWeather.city_id = (NSNumber*) responseObject[@"id"];
             currentCityWeather.city_name = (NSString*) responseObject[@"name"];
-            currentCityWeather.description = (NSString*) responseObject[@"weather"][0][@"description"];
-            currentCityWeather.humidity = (NSString*)responseObject[@"main"][@"humidity"];
-            currentCityWeather.temperature = (NSString*)responseObject[@"main"][@"temp"];
-            currentCityWeather.windspeed = (NSString*)responseObject[@"wind"][@"speed"];
+            currentCityWeather.description = (NSString*) responseObject[@"weather"][0][@"main"];
+            currentCityWeather.humidity = (NSNumber*)responseObject[@"main"][@"humidity"];
+            currentCityWeather.temperature = (NSNumber*)responseObject[@"main"][@"temp"];
+            currentCityWeather.windspeed = (NSNumber*)responseObject[@"wind"][@"speed"];
             NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"dd.MM.yyyy - HH:mm"];
             currentCityWeather.request_data_time = [dateFormatter stringFromDate:[NSDate date]];
