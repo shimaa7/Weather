@@ -8,16 +8,22 @@
 
 #ifndef WeatherModel_h
 #define WeatherModel_h
+#import <CoreData/CoreData.h>
 
-struct Weather{
-    NSString *city_name;
-    NSString *request_data_time;
-    NSString *description;
-    NSNumber *temperature;
-    NSNumber *humidity;
-    NSNumber *windspeed;
-    NSNumber   *city_id;
-};
+@class Weather;
+@interface Weather: NSManagedObject
+
+@property (nonatomic, readwrite) NSString *city_name;
+@property (nonatomic, readwrite) NSString *request_data_time;
+@property (nonatomic, readwrite) NSString *description;
+@property (nonatomic, readwrite) NSNumber *temperature;
+@property (nonatomic, readwrite) NSNumber *humidity;
+@property (nonatomic, readwrite) NSNumber *windspeed;
+@property (nonatomic, readwrite) NSNumber *city_id;
+
+-(void) saveWeatherObject;
+-(void) setCity;
+@end
 
 #endif /* WeatherModel_h */
 

@@ -16,12 +16,9 @@
 
 static NSString* const CityWeatherURLString = @"https://api.openweathermap.org/data/2.5/weather?APPID=f5cb0b965ea1564c50c6f1b74534d823&q=";
 
-- (struct Weather) getCityWeatherRequest: (NSString*) city_name completed:(getRequestBlock)completed
+- (void) getCityWeatherRequest: (NSString*) city_name: (Weather*)currentCityWeather: completed:(getRequestBlock)completed
 {
     NSString *BaseURL = [CityWeatherURLString stringByAppendingString:city_name];
-    
-    __block struct Weather currentCityWeather;
-
     //--------------- API Request ---------------------------------------
 
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -47,12 +44,12 @@ static NSString* const CityWeatherURLString = @"https://api.openweathermap.org/d
             NSDateFormatter *dateFormatter=[[NSDateFormatter alloc] init];
             [dateFormatter setDateFormat:@"dd.MM.yyyy - HH:mm"];
             currentCityWeather.request_data_time = [dateFormatter stringFromDate:[NSDate date]];
-//            NSLog(@"%@ %@", currentCityWeather.city_name, currentCityWeather.description);
-            completed(currentCityWeather);
+            NSLog(@"%@", currentCityWeather.city_name);
+            
+            completed(true);
         }
     }];
     [dataTask resume];
-    return currentCityWeather;
 
 }
 

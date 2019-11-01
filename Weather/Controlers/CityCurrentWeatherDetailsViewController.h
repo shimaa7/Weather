@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong,nonatomic) UILabel *humidityVal;
 @property (strong,nonatomic) UILabel *windspeedVal;
 @property (strong,nonatomic) UILabel *mainLabel;
-
+@property (strong,nonatomic) Weather *weather;
 
 @end
 

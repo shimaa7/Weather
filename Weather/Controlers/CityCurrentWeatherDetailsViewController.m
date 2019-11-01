@@ -16,19 +16,23 @@
     [super viewDidLoad];
     [self setupLayout];
     Network *connection = [[Network alloc] init];
-    [connection getCityWeatherRequest: _city_name completed:^(struct Weather weather) {
-//        NSLog(@"%@ %@", weather.city_name, weather.humidity);
-        [self loadData: weather];
+    [connection getCityWeatherRequest:_city_name :_weather :0 :^(Boolean state) {
+        if (state){
+            NSLog(@"%@ %@", self->_weather.city_name, self->_weather.humidity);
+            [self loadData];
+        }
+
     }];
-    
+
 }
--(void)loadData: (struct Weather) weather{
+-(void)loadData{
 //    NSLog(@"%@", weather.humidity);
-    _descriptionVal.text = weather.description;
-    _humidityVal.text =  [NSString stringWithFormat: @"%@ %@", [weather.humidity stringValue], @"%"];
-    _windspeedVal.text = [NSString stringWithFormat: @"%@ %@", [weather.windspeed stringValue], @"Km/h"];
-    _temperatureVal.text = [NSString stringWithFormat: @"%@ %@", [weather.temperature stringValue], @"°C"];
-    _mainLabel.text = weather.city_name;
+//    [_weather saveWeatherObject];
+    _descriptionVal.text = _weather.description;
+    _humidityVal.text =  [NSString stringWithFormat: @"%@ %@", [_weather.humidity stringValue], @"%"];
+    _windspeedVal.text = [NSString stringWithFormat: @"%@ %@", [_weather.windspeed stringValue], @"Km/h"];
+    _temperatureVal.text = [NSString stringWithFormat: @"%@ %@", [_weather.temperature stringValue], @"°C"];
+    _mainLabel.text = _weather.city_name;
 }
 -(void)setupLayout{
     
@@ -36,6 +40,7 @@
     
     // main view color
     self.view.backgroundColor = [UIColor colorWithRed:37/255.0 green:37/255.0 blue:38/255.0 alpha:1/1.0];
+    _weather = [[Weather alloc] init];
     
     // bottom Image View
     UIImageView *bottomImageView = [[UIImageView alloc]init];

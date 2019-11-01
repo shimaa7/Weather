@@ -12,10 +12,9 @@
 
 @interface Network : NSObject
 
-typedef void(^getRequestBlock)(struct Weather weather);
+typedef void(^getRequestBlock)(Boolean state);
 
--(struct Weather) getCityWeatherRequest: (NSString*) city_name completed:(getRequestBlock)completed;
-
+-(void) getCityWeatherRequest: (NSString*) city_name: (Weather*)currentCityWeather: completed:(getRequestBlock)completed;
 
 @end
 
