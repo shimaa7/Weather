@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		CAA6857962AD913F2DFB71AE /* libPods-Weather.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E0B33C61A9EB7AC58FCA161 /* libPods-Weather.a */; };
+		D4411E49236C3CDD007C46A4 /* Weather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4411E47236C3CDD007C46A4 /* Weather.xcdatamodeld */; };
 		D44F310E23674D970069ECAC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D44F310D23674D970069ECAC /* AppDelegate.m */; };
 		D44F311123674D970069ECAC /* CitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D44F311023674D970069ECAC /* CitiesViewController.m */; };
 		D44F311423674D970069ECAC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44F311223674D970069ECAC /* Main.storyboard */; };
-		D44F311723674D970069ECAC /* Weather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D44F311523674D970069ECAC /* Weather.xcdatamodeld */; };
 		D44F311923674D980069ECAC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D44F311823674D980069ECAC /* Assets.xcassets */; };
 		D44F311C23674D980069ECAC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D44F311A23674D980069ECAC /* LaunchScreen.storyboard */; };
 		D44F311F23674D980069ECAC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D44F311E23674D980069ECAC /* main.m */; };
@@ -29,13 +29,13 @@
 		0D6F1A575C335789386018D8 /* Pods-Weather.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.debug.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.debug.xcconfig"; sourceTree = "<group>"; };
 		2E0B33C61A9EB7AC58FCA161 /* libPods-Weather.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Weather.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7541B982AF1ACA95BABB89D3 /* Pods-Weather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Weather.release.xcconfig"; path = "Target Support Files/Pods-Weather/Pods-Weather.release.xcconfig"; sourceTree = "<group>"; };
+		D4411E48236C3CDD007C46A4 /* Weather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weather.xcdatamodel; sourceTree = "<group>"; };
 		D44F310923674D970069ECAC /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44F310C23674D970069ECAC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D44F310D23674D970069ECAC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D44F310F23674D970069ECAC /* CitiesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CitiesViewController.h; sourceTree = "<group>"; };
 		D44F311023674D970069ECAC /* CitiesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CitiesViewController.m; sourceTree = "<group>"; };
 		D44F311323674D970069ECAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D44F311623674D970069ECAC /* Weather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weather.xcdatamodel; sourceTree = "<group>"; };
 		D44F311823674D980069ECAC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D44F311B23674D980069ECAC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D44F311D23674D980069ECAC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +90,7 @@
 		D44F310023674D970069ECAC = {
 			isa = PBXGroup;
 			children = (
+				D4411E47236C3CDD007C46A4 /* Weather.xcdatamodeld */,
 				D44F310B23674D970069ECAC /* Weather */,
 				D44F310A23674D970069ECAC /* Products */,
 				7E18325877FF5BFCD51C95CC /* Pods */,
@@ -117,7 +118,6 @@
 				D44F311823674D980069ECAC /* Assets.xcassets */,
 				D44F311D23674D980069ECAC /* Info.plist */,
 				D44F311E23674D980069ECAC /* main.m */,
-				D44F311523674D970069ECAC /* Weather.xcdatamodeld */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -289,10 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4411E49236C3CDD007C46A4 /* Weather.xcdatamodeld in Sources */,
 				D4C6DFB02367F4CD0042827E /* API.m in Sources */,
 				D4C6DFBF23689C0B0042827E /* CityHistoricalViewController.m in Sources */,
 				D4C6DFC52368A7F00042827E /* CityHistoricalTableViewCell.m in Sources */,
-				D44F311723674D970069ECAC /* Weather.xcdatamodeld in Sources */,
 				D44F31272367EFE10069ECAC /* WeatherModel.m in Sources */,
 				D4C6DFC223689C390042827E /* CityCurrentWeatherDetailsViewController.m in Sources */,
 				D44F311123674D970069ECAC /* CitiesViewController.m in Sources */,
@@ -442,10 +442,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0D6F1A575C335789386018D8 /* Pods-Weather.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2CACRG3S47;
 				INFOPLIST_FILE = Weather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,10 +462,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 7541B982AF1ACA95BABB89D3 /* Pods-Weather.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2CACRG3S47;
 				INFOPLIST_FILE = Weather/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -498,12 +502,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		D44F311523674D970069ECAC /* Weather.xcdatamodeld */ = {
+		D4411E47236C3CDD007C46A4 /* Weather.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				D44F311623674D970069ECAC /* Weather.xcdatamodel */,
+				D4411E48236C3CDD007C46A4 /* Weather.xcdatamodel */,
 			);
-			currentVersion = D44F311623674D970069ECAC /* Weather.xcdatamodel */;
+			currentVersion = D4411E48236C3CDD007C46A4 /* Weather.xcdatamodel */;
 			path = Weather.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

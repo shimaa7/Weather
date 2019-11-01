@@ -29,6 +29,10 @@
     
     Weather *weatherObject = ([NSEntityDescription insertNewObjectForEntityForName:@"Weather" inManagedObjectContext:[self managedObjectContext]]);
     
+    NSError *error = nil;
+    if ([[weatherObject managedObjectContext] save:&error] == NO) {
+        NSAssert(NO, @"Error saving context: %@\n%@", [error localizedDescription], [error userInfo]);
+    }
 }
 
 @end

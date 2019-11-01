@@ -9,8 +9,15 @@
 #import "CityCurrentWeatherDetailsViewController.h"
 #import "API.h"
 #import "WeatherModel.h"
+#import "AppDelegate.h"
 
-@implementation CityCurrentWeatherDetailsViewController
+
+@implementation CityCurrentWeatherDetailsViewController {
+    AppDelegate *appDelegate;
+    NSManagedObjectContext *context;
+    NSArray *dictionaries;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -19,6 +26,18 @@
     [connection getCityWeatherRequest:_city_name :_weather :0 :^(Boolean state) {
         if (state){
             NSLog(@"%@ %@", self->_weather.city_name, self->_weather.humidity);
+            //Get Context
+            self->appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+            self->context = self->appDelegate.persistentContainer.viewContext;
+            // Save Data
+            NSManagedObject *entityObj = [NSEntityDescription insertNewObjectForEntityForName:@"Weather" inManagedObjectContext:self->context];
+            [entityObj setValue:self->_weather.city_name forKey:@"city_name"];
+            [entityObj setValue:self->_weather.city_id forKey:@"city_id"];
+            [entityObj setValue:self->_weather.description forKey:@"weather_description"];
+            [entityObj setValue:self->_weather.temperature forKey:@"temperature"];
+            [entityObj setValue:self->_weather.request_data_time forKey:@"request_data_time"];
+            [self->appDelegate saveContext];
+//            [self->_weather saveWeatherObject];
             [self loadData];
         }
 
@@ -27,7 +46,6 @@
 }
 -(void)loadData{
 //    NSLog(@"%@", weather.humidity);
-//    [_weather saveWeatherObject];
     _descriptionVal.text = _weather.description;
     _humidityVal.text =  [NSString stringWithFormat: @"%@ %@", [_weather.humidity stringValue], @"%"];
     _windspeedVal.text = [NSString stringWithFormat: @"%@ %@", [_weather.windspeed stringValue], @"Km/h"];

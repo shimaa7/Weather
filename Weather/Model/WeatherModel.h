@@ -22,7 +22,6 @@
 @property (nonatomic, readwrite) NSNumber *city_id;
 
 -(void) saveWeatherObject;
--(void) setCity;
 @end
 
 #endif /* WeatherModel_h */
